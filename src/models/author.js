@@ -1,13 +1,13 @@
-const { dataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Author = sequelize.define('Author', {
     name: {
-        type: dataTypes.STRING,
+        type: DataTypes.STRING,
         allowNull: false
     },
     birthYear: {
-        type: dataTypes.INTEGER
+        type: DataTypes.INTEGER
     }
 });
 
