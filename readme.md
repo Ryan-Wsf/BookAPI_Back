@@ -15,4 +15,28 @@ npm install express mysql2 sequelize dotenv
 npm install --save-dev nodemon
 
 ```
+## Structure du projet
+
+```
+cours_back-end/
+├── src/
+|   ├── config/
+|   |     └── database.js
+|   ├── models/
+|   |     ├── index.js
+|   |     ├── book.js
+|   |     └── author.js
+|   ├── controllers/
+|   |     ├── bookController.js
+|   |     └── autheurController.js
+|   ├── routes/
+|   |     ├── bookRoutes.js
+|   |     └── authorRoutes.js
+|   ├── middlewares/
+|   |     └── errorHandler.js
+|   ├── app.js
+├── .env
+├── package.json
+
+```
 
