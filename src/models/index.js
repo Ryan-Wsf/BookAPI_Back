@@ -1,7 +1,8 @@
 // Importation des modèles 'Book' et 'Author'
-// Ces modèles représentent les tables 'Books' et 'Authors' dans la base de données.
+// Ces modèles représentent les tables 'Books', 'Authors' et 'User' dans la base de données.
 const Book = require('./book');
 const Author = require('./author');
+const User = require('./user');
 
 // Définition des relations entre les modèles
 
@@ -18,5 +19,6 @@ Author.hasMany(Book);
 // Exportation des modèles pour qu'ils puissent être utilisés ailleurs dans l'application
 module.exports = {
     Book,
-    Author
+    Author,
+    User
 };
