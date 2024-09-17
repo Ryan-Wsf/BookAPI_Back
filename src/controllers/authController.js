@@ -1,19 +1,18 @@
 const jwt = require('jsonwebtoken');
 const { User } = require('../models');
-require ('dotenv').config();
+require('dotenv').config();
 
-
-exports.register = async (req, res) => {
+exports.register = async (req, res, next) => {
     try {
         const { email, password } = req.body;
         const user = await User.create({ email, password });
-        res.status(201).json({message: 'User Created', userId: user.id});
+        res.status(201).json({ message: 'User Created', userId: user.id });
     } catch (error) {
-        next(error);
+        next(error);  // Passer l'erreur au middleware d'Express
     }
 }
 
-exports.login = async (req, res) => {
+exports.login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ where: { email } });
@@ -27,7 +26,7 @@ exports.login = async (req, res) => {
         const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '90d' });
         res.status(200).json({ token });
     } catch (error) {
-        next(error);
+        next(error);  // Passer l'erreur au middleware d'Express
     }
 }
 
